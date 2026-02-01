@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "thudong": {
+      "command": "node",
+      "args": ["/opt/docker-test/server-mcp/thudong-mcp-c/src/index.js"]
+    }
+  }
+}

@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  thudong-mcp:
+    build: .
+    container_name: thudong-mcp-c
+    restart: unless-stopped
+    volumes:
+      - ./db:/app/db
+    stdin_open: true
+    tty: true

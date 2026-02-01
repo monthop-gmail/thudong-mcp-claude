@@ -1,0 +1,32 @@
+{
+  "name": "thudong-mcp-c",
+  "version": "1.0.0",
+  "description": "MCP Server for Post-Thudong Survey RAG - วัดป่าร้อยปีหลวงพ่อวิริยังค์",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "thudong-mcp": "./src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "start:sse": "node src/server-sse.js",
+    "dev": "node --watch src/index.js",
+    "import": "node src/import.js",
+    "test:db": "node src/test-db.js"
+  },
+  "keywords": [
+    "mcp",
+    "rag",
+    "thudong",
+    "survey",
+    "sqlite",
+    "fts5",
+    "thai"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "better-sqlite3": "^11.0.0"
+  }
+}

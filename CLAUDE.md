@@ -1,4 +1,4 @@
-# thudong-mcp-c
+# thudong-mcp-claude
 
 MCP Server สำหรับ RAG ข้อมูลแบบสอบถาม "หลังการสอบภาคสนามธุดงค์"
 - สถานที่: วัดป่าร้อยปีหลวงพ่อวิริยังค์ จ.ราชบุรี
@@ -88,13 +88,13 @@ npm run test:db        # Test database operations
 
 ```bash
 # Build
-docker build -t thudong-mcp-c .
+docker build -t thudong-mcp-claude .
 
 # Run
-docker run -i --rm thudong-mcp-c
+docker run -i --rm thudong-mcp-claude
 
 # SSE mode
-docker run -p 3000:3000 thudong-mcp-c node src/server-sse.js
+docker run -p 3000:3000 thudong-mcp-claude node src/server-sse.js
 ```
 
 ## Example Prompts

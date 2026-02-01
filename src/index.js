@@ -30,7 +30,7 @@ initDatabase();
 // Create MCP server
 const server = new Server(
     {
-        name: 'thudong-mcp-c',
+        name: 'thudong-mcp-claude',
         version: '1.0.0',
     },
     {

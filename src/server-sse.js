@@ -50,7 +50,7 @@ const httpServer = createServer(async (req, res) => {
     // Health check
     if (url.pathname === '/health') {
         res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ status: 'ok', server: 'thudong-mcp-c' }));
+        res.end(JSON.stringify({ status: 'ok', server: 'thudong-mcp-claude' }));
         return;
     }
 
@@ -106,7 +106,7 @@ const httpServer = createServer(async (req, res) => {
 function createMCPServer() {
     const server = new Server(
         {
-            name: 'thudong-mcp-c',
+            name: 'thudong-mcp-claude',
             version: '1.0.0',
         },
         {

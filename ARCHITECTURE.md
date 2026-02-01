@@ -10,7 +10,7 @@
                                     │ MCP Protocol (stdio/SSE)
                                     ▼
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                          thudong-mcp-c Server                           │
+│                          thudong-mcp-claude Server                           │
 │  ┌─────────────────────────────────────────────────────────────────┐   │
 │  │                         MCP Tools                                │   │
 │  │  ┌──────────────┐  ┌──────────────┐  ┌────────────────────┐    │   │
@@ -236,7 +236,7 @@ END;
 ## File Structure
 
 ```
-thudong-mcp-c/
+thudong-mcp-claude/
 ├── data/
 │   └── Post-Thudong-Eval/
 │       └── WatPaRoiPee-2025.csv      # Raw data

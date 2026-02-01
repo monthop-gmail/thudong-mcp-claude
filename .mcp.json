@@ -1,8 +1,8 @@
 {
   "mcpServers": {
     "thudong": {
-      "command": "docker",
-      "args": ["run", "-i", "--rm", "thudong-mcp-claude"]
+      "type": "sse",
+      "url": "http://localhost:3200/sse"
     }
   }
 }

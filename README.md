@@ -10,7 +10,7 @@ MCP Server สำหรับ RAG ข้อมูลแบบสอบถาม 
 - ค้นหาความคิดเห็นด้วย Full-Text Search (FTS5)
 - สถิติความพึงพอใจรายหมวด
 - เปรียบเทียบระหว่างกลุ่มผู้ตอบ
-- รองรับทั้ง stdio และ SSE transport
+- SSE Transport + Docker
 
 ## Quick Stats
 
@@ -23,41 +23,29 @@ MCP Server สำหรับ RAG ข้อมูลแบบสอบถาม 
 | ข้อความ "ประทับใจ" | 660 รายการ |
 | ข้อความ "ข้อเสนอแนะ" | 510 รายการ |
 
-## Installation (Docker)
+## Installation
 
 ```bash
 # Clone repository
 git clone https://github.com/monthop-gmail/thudong-mcp-claude.git
 cd thudong-mcp-claude
 
-# Build Docker image
-docker build -t thudong-mcp-claude .
+# Start with Docker Compose
+docker compose up -d
 ```
 
-## Usage
+Server จะรันที่ `http://localhost:3200`
 
-### stdio mode (for Claude Desktop/Code)
+## Claude Code Configuration
 
-```bash
-docker run -i --rm thudong-mcp-claude
-```
-
-### SSE mode (for web clients)
-
-```bash
-docker run -p 3000:3000 thudong-mcp-claude node src/server-sse.js
-```
-
-## Claude Desktop Configuration
-
-เพิ่มใน `~/.claude/settings.json`:
+เพิ่มไฟล์ `.mcp.json` ใน project:
 
 ```json
 {
   "mcpServers": {
     "thudong": {
-      "command": "docker",
-      "args": ["run", "-i", "--rm", "thudong-mcp-claude"]
+      "type": "sse",
+      "url": "http://localhost:3200/sse"
     }
   }
 }
@@ -100,21 +88,36 @@ docker run -p 3000:3000 thudong-mcp-claude node src/server-sse.js
 - "สรุปประเด็นที่ต้องปรับปรุงสำหรับปีหน้า"
 - "อะไรคือสิ่งที่ผู้เข้าร่วมประทับใจมากที่สุด"
 
-## Data Structure
+## Docker Commands
 
-### 4 หมวดหลัก
+```bash
+# Start server
+docker compose up -d
 
-1. **ความรู้ที่ได้รับ** (8 ข้อ) - เฉพาะนักศึกษา
-2. **คุณธรรมจริยธรรม** (8 ข้อ) - เฉพาะนักศึกษา
-3. **การจัดงาน** (6 ข้อ) - ทุกกลุ่ม
-4. **สิ่งอำนวยความสะดวก** (6 ข้อ) - ทุกกลุ่ม
-5. **ข้อความอิสระ** (2 ข้อ) - สิ่งประทับใจ, ข้อเสนอแนะ
+# View logs
+docker compose logs -f
+
+# Stop server
+docker compose down
+
+# Rebuild after changes
+docker compose up -d --build
+```
+
+## Endpoints
+
+| Endpoint | Description |
+|----------|-------------|
+| `GET /health` | Health check |
+| `GET /sse` | SSE connection for MCP |
+| `POST /message` | Message endpoint for SSE |
 
 ## Tech Stack
 
 - **Runtime:** Node.js 20
 - **MCP SDK:** @modelcontextprotocol/sdk
 - **Database:** SQLite + FTS5
+- **Transport:** SSE (Server-Sent Events)
 
 ## License
 

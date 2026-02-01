@@ -38,6 +38,14 @@ Server จะรันที่ `http://localhost:3200`
 
 ## Claude Code Configuration
 
+### Option 1: CLI Command
+
+```bash
+claude mcp add thudong --transport sse --url http://localhost:3200/sse
+```
+
+### Option 2: Manual Config
+
 เพิ่มไฟล์ `.mcp.json` ใน project:
 
 ```json

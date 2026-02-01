@@ -72,6 +72,8 @@ claude mcp add thudong --transport sse --url http://localhost:3200/sse
 
 ## Example Prompts
 
+> ดูตัวอย่าง Prompt ทั้งหมดได้ที่ [PROMPTS.md](PROMPTS.md)
+
 ### ภาพรวมและสถิติ
 - "แสดงภาพรวมแบบสอบถามธุดงค์"
 - "สรุปความพึงพอใจด้านสิ่งอำนวยความสะดวก"
@@ -95,6 +97,18 @@ claude mcp add thudong --transport sse --url http://localhost:3200/sse
 - "วิเคราะห์จุดแข็งและจุดอ่อนของการจัดงานธุดงค์"
 - "สรุปประเด็นที่ต้องปรับปรุงสำหรับปีหน้า"
 - "อะไรคือสิ่งที่ผู้เข้าร่วมประทับใจมากที่สุด"
+
+## Reports
+
+รายงานวิเคราะห์ข้อมูลแบบสอบถาม:
+
+| รายงาน | เนื้อหา |
+|--------|---------|
+| [executive-summary.md](reports/executive-summary.md) | รายงานสรุป 1 หน้าสำหรับผู้บริหาร |
+| [survey-overview.md](reports/survey-overview.md) | ภาพรวมและสถิติทั้งหมด |
+| [swot-analysis.md](reports/swot-analysis.md) | วิเคราะห์จุดแข็ง/จุดอ่อน |
+| [top-impressions.md](reports/top-impressions.md) | สิ่งที่ประทับใจมากที่สุด |
+| [improvements-2569.md](reports/improvements-2569.md) | ประเด็นที่ต้องปรับปรุงปีหน้า |
 
 ## Docker Commands
 

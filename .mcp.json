@@ -1,8 +1,8 @@
 {
   "mcpServers": {
     "thudong": {
-      "command": "node",
-      "args": ["/opt/docker-test/server-mcp/thudong-mcp-c/src/index.js"]
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "thudong-mcp-claude"]
     }
   }
 }

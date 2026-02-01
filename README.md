@@ -11,7 +11,6 @@ MCP Server สำหรับ RAG ข้อมูลแบบสอบถาม 
 - สถิติความพึงพอใจรายหมวด
 - เปรียบเทียบระหว่างกลุ่มผู้ตอบ
 - รองรับทั้ง stdio และ SSE transport
-- Docker ready
 
 ## Quick Stats
 
@@ -24,21 +23,44 @@ MCP Server สำหรับ RAG ข้อมูลแบบสอบถาม 
 | ข้อความ "ประทับใจ" | 660 รายการ |
 | ข้อความ "ข้อเสนอแนะ" | 510 รายการ |
 
-## Installation
+## Installation (Docker)
 
 ```bash
 # Clone repository
 git clone https://github.com/monthop-gmail/thudong-mcp-claude.git
 cd thudong-mcp-claude
 
-# Install dependencies
-npm install
+# Build Docker image
+docker build -t thudong-mcp-claude .
+```
 
-# Import data to SQLite
-npm run import
+## Usage
 
-# Start MCP server
-npm run start
+### stdio mode (for Claude Desktop/Code)
+
+```bash
+docker run -i --rm thudong-mcp-claude
+```
+
+### SSE mode (for web clients)
+
+```bash
+docker run -p 3000:3000 thudong-mcp-claude node src/server-sse.js
+```
+
+## Claude Desktop Configuration
+
+เพิ่มใน `~/.claude/settings.json`:
+
+```json
+{
+  "mcpServers": {
+    "thudong": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "thudong-mcp-claude"]
+    }
+  }
+}
 ```
 
 ## MCP Tools
@@ -51,34 +73,6 @@ npm run start
 | `get_improvements` | รวบรวมข้อเสนอแนะ/สิ่งที่ควรปรับปรุง |
 | `get_impressions` | รวบรวมสิ่งที่ประทับใจ |
 | `compare_groups` | เปรียบเทียบความพึงพอใจระหว่างกลุ่มผู้ตอบ |
-
-## Usage with Claude Desktop
-
-เพิ่มใน `~/.claude/settings.json`:
-
-```json
-{
-  "mcpServers": {
-    "thudong": {
-      "command": "node",
-      "args": ["/path/to/thudong-mcp-claude/src/index.js"]
-    }
-  }
-}
-```
-
-## Docker
-
-```bash
-# Build image
-docker build -t thudong-mcp-claude .
-
-# Run (stdio mode)
-docker run -i --rm thudong-mcp-claude
-
-# Run (SSE mode on port 3000)
-docker run -p 3000:3000 thudong-mcp-claude node src/server-sse.js
-```
 
 ## Example Prompts
 
@@ -108,44 +102,19 @@ docker run -p 3000:3000 thudong-mcp-claude node src/server-sse.js
 
 ## Data Structure
 
-### 4 หมวดหลัก (32 คอลัมน์)
+### 4 หมวดหลัก
 
 1. **ความรู้ที่ได้รับ** (8 ข้อ) - เฉพาะนักศึกษา
-   - ประวัติหลวงพ่อ, เกร็ดธรรมะ, สมาธิ, การธุดงค์, ประโยชน์สมาธิ, ชวนะจิต, การนำไปใช้
-   - Scale: มากที่สุด(5) → น้อยที่สุด(1)
-
 2. **คุณธรรมจริยธรรม** (8 ข้อ) - เฉพาะนักศึกษา
-   - เมตตา, เหตุผล, รับผิดชอบ, วินัย, อดทน, เสียสละ, ให้อภัย
-   - Scale: มากที่สุด(5) → น้อยที่สุด(1)
-
 3. **การจัดงาน** (6 ข้อ) - ทุกกลุ่ม
-   - กำหนดการ, เส้นทาง, พี่เลี้ยง, ศาสนพิธี, พิธีกล่าวความรู้สึก, ตรงวัตถุประสงค์
-   - Scale: พอใจมากที่สุด(5) → พอใจน้อยที่สุด(1)
-
 4. **สิ่งอำนวยความสะดวก** (6 ข้อ) - ทุกกลุ่ม
-   - ประชาสัมพันธ์, ประสานงาน, บรรยากาศ, ที่พัก, อาหาร, ห้องน้ำ
-   - Scale: พอใจมากที่สุด(5) → พอใจน้อยที่สุด(1)
-
-5. **ข้อความอิสระ** (2 ข้อ) - RAG Target
-   - สิ่งที่ประทับใจมากที่สุด
-   - สิ่งที่ควรปรับปรุง/ข้อเสนอแนะ
+5. **ข้อความอิสระ** (2 ข้อ) - สิ่งประทับใจ, ข้อเสนอแนะ
 
 ## Tech Stack
 
-- **Runtime:** Node.js (ES Modules)
+- **Runtime:** Node.js 20
 - **MCP SDK:** @modelcontextprotocol/sdk
-- **Database:** SQLite + FTS5 (better-sqlite3)
-- **Transport:** stdio / SSE
-
-## Development
-
-```bash
-npm run start          # Production (stdio)
-npm run start:sse      # Production (SSE on port 3000)
-npm run dev            # Development with watch
-npm run import         # Import CSV to database
-npm run test:db        # Test database operations
-```
+- **Database:** SQLite + FTS5
 
 ## License
 

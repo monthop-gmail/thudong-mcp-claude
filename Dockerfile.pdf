@@ -1,0 +1,27 @@
+FROM node:22-slim
+
+# Install Chromium and Thai fonts
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    chromium \
+    fonts-thai-tlwg \
+    fonts-noto-color-emoji \
+    && rm -rf /var/lib/apt/lists/*
+
+# Tell Puppeteer to use system Chromium
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+
+WORKDIR /app
+
+# Copy package files and install
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev 2>/dev/null; npm install marked puppeteer
+
+# Copy source files
+COPY reports/ ./reports/
+COPY convert-to-pdf.mjs ./
+
+# Create output directory
+RUN mkdir -p reports-pdf
+
+CMD ["node", "convert-to-pdf.mjs"]

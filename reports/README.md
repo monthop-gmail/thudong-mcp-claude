@@ -9,13 +9,13 @@
 
 ## รายงานทั้งหมด
 
-| รายงาน | เนื้อหา | เหมาะสำหรับ |
-|--------|---------|-------------|
-| [executive-summary.md](executive-summary.md) | รายงานสรุป 1 หน้า | ผู้บริหาร |
-| [survey-overview.md](survey-overview.md) | ภาพรวมและสถิติทั้งหมด | ทุกคน |
-| [swot-analysis.md](swot-analysis.md) | วิเคราะห์จุดแข็ง/จุดอ่อน | ผู้บริหาร, คณะทำงาน |
-| [top-impressions.md](top-impressions.md) | สิ่งที่ประทับใจมากที่สุด | ทุกคน |
-| [improvements-2569.md](improvements-2569.md) | ประเด็นที่ต้องปรับปรุงปีหน้า | คณะทำงาน |
+| รายงาน | เนื้อหา | เหมาะสำหรับ | PDF |
+|--------|---------|-------------|-----|
+| [executive-summary.md](executive-summary.md) | รายงานสรุป 1 หน้า | ผู้บริหาร | [PDF](../reports-pdf/executive-summary.pdf) |
+| [survey-overview.md](survey-overview.md) | ภาพรวมและสถิติทั้งหมด | ทุกคน | [PDF](../reports-pdf/survey-overview.pdf) |
+| [swot-analysis.md](swot-analysis.md) | วิเคราะห์จุดแข็ง/จุดอ่อน | ผู้บริหาร, คณะทำงาน | [PDF](../reports-pdf/swot-analysis.pdf) |
+| [top-impressions.md](top-impressions.md) | สิ่งที่ประทับใจมากที่สุด | ทุกคน | [PDF](../reports-pdf/top-impressions.pdf) |
+| [improvements-2569.md](improvements-2569.md) | ประเด็นที่ต้องปรับปรุงปีหน้า | คณะทำงาน | [PDF](../reports-pdf/improvements-2569.pdf) |
 
 ---
 

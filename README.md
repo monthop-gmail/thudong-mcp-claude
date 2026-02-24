@@ -27,13 +27,13 @@ MCP Server สำหรับ RAG ข้อมูลแบบสอบถาม 
 
 รายงานวิเคราะห์ข้อมูลแบบสอบถาม:
 
-| รายงาน | เนื้อหา |
-|--------|---------|
-| [executive-summary.md](reports/executive-summary.md) | รายงานสรุป 1 หน้าสำหรับผู้บริหาร |
-| [survey-overview.md](reports/survey-overview.md) | ภาพรวมและสถิติทั้งหมด |
-| [swot-analysis.md](reports/swot-analysis.md) | วิเคราะห์จุดแข็ง/จุดอ่อน |
-| [top-impressions.md](reports/top-impressions.md) | สิ่งที่ประทับใจมากที่สุด |
-| [improvements-2569.md](reports/improvements-2569.md) | ประเด็นที่ต้องปรับปรุงปีหน้า |
+| รายงาน | เนื้อหา | PDF |
+|--------|---------|-----|
+| [executive-summary.md](reports/executive-summary.md) | รายงานสรุป 1 หน้าสำหรับผู้บริหาร | [PDF](reports-pdf/executive-summary.pdf) |
+| [survey-overview.md](reports/survey-overview.md) | ภาพรวมและสถิติทั้งหมด | [PDF](reports-pdf/survey-overview.pdf) |
+| [swot-analysis.md](reports/swot-analysis.md) | วิเคราะห์จุดแข็ง/จุดอ่อน | [PDF](reports-pdf/swot-analysis.pdf) |
+| [top-impressions.md](reports/top-impressions.md) | สิ่งที่ประทับใจมากที่สุด | [PDF](reports-pdf/top-impressions.pdf) |
+| [improvements-2569.md](reports/improvements-2569.md) | ประเด็นที่ต้องปรับปรุงปีหน้า | [PDF](reports-pdf/improvements-2569.pdf) |
 
 ## Example Prompts
 

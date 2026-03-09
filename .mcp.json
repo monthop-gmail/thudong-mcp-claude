@@ -1,8 +1,8 @@
 {
   "mcpServers": {
     "thudong": {
-      "type": "sse",
-      "url": "http://localhost:3200/sse"
+      "type": "streamable-http",
+      "url": "http://localhost:3200/mcp"
     }
   }
 }

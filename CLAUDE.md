@@ -38,7 +38,7 @@ MCP Server สำหรับ RAG ข้อมูลแบบสอบถาม 
 - Node.js + ES Modules
 - @modelcontextprotocol/sdk
 - better-sqlite3 + FTS5
-- Transport: stdio / SSE
+- Transport: stdio / Streamable HTTP
 
 ## File Locations
 - Raw CSV: `data/Post-Thudong-Eval/WatPaRoiPee-2025.csv`
@@ -48,7 +48,7 @@ MCP Server สำหรับ RAG ข้อมูลแบบสอบถาม 
 ## Development Commands
 ```bash
 npm run start          # Production (stdio)
-npm run start:sse      # Production (SSE)
+npm run start:sse      # Production (Streamable HTTP)
 npm run dev            # Development with watch
 npm run import         # Import CSV to database
 npm run test:db        # Test database operations

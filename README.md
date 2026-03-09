@@ -10,7 +10,7 @@ MCP Server สำหรับ RAG ข้อมูลแบบสอบถาม 
 - ค้นหาความคิดเห็นด้วย Full-Text Search (FTS5)
 - สถิติความพึงพอใจรายหมวด
 - เปรียบเทียบระหว่างกลุ่มผู้ตอบ
-- SSE Transport + Docker
+- Streamable HTTP Transport + Docker
 
 ## Quick Stats
 
@@ -81,7 +81,7 @@ Server จะรันที่ `http://localhost:3200`
 ### Option 1: CLI Command
 
 ```bash
-claude mcp add thudong --transport sse --url http://localhost:3200/sse
+claude mcp add thudong --transport streamable-http --url http://localhost:3200/mcp
 ```
 
 ### Option 2: Manual Config
@@ -92,8 +92,8 @@ claude mcp add thudong --transport sse --url http://localhost:3200/sse
 {
   "mcpServers": {
     "thudong": {
-      "type": "sse",
-      "url": "http://localhost:3200/sse"
+      "type": "streamable-http",
+      "url": "http://localhost:3200/mcp"
     }
   }
 }
@@ -131,15 +131,15 @@ docker compose up -d --build
 | Endpoint | Description |
 |----------|-------------|
 | `GET /health` | Health check |
-| `GET /sse` | SSE connection for MCP |
-| `POST /message` | Message endpoint for SSE |
+| `POST /mcp` | Streamable HTTP endpoint for MCP |
+| `GET /mcp` | SSE stream for server-to-client notifications |
 
 ## Tech Stack
 
 - **Runtime:** Node.js 20
 - **MCP SDK:** @modelcontextprotocol/sdk
 - **Database:** SQLite + FTS5
-- **Transport:** SSE (Server-Sent Events)
+- **Transport:** Streamable HTTP
 
 ## License
 
